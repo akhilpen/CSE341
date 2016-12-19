@@ -1,0 +1,72 @@
+#! /util/verilog-0.9.7/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x223bf00 .scope module, "full_adder_delay" "full_adder_delay" 2 1;
+ .timescale 0 0;
+L_0x2265ca0/d .functor XOR 1, v0x223bff0_0, v0x2265700_0, C4<0>, C4<0>;
+L_0x2265ca0 .delay (1,1,1) L_0x2265ca0/d;
+L_0x2265d80/d .functor XOR 1, L_0x2265ca0, v0x22657a0_0, C4<0>, C4<0>;
+L_0x2265d80 .delay (1,1,1) L_0x2265d80/d;
+L_0x2265ea0/d .functor AND 1, v0x223bff0_0, v0x22657a0_0, C4<1>, C4<1>;
+L_0x2265ea0 .delay (1,1,1) L_0x2265ea0/d;
+L_0x2266030/d .functor AND 1, v0x2265700_0, v0x22657a0_0, C4<1>, C4<1>;
+L_0x2266030 .delay (1,1,1) L_0x2266030/d;
+L_0x2266140/d .functor AND 1, v0x223bff0_0, v0x2265700_0, C4<1>, C4<1>;
+L_0x2266140 .delay (1,1,1) L_0x2266140/d;
+L_0x22661e0/d .functor OR 1, L_0x2265ea0, L_0x2266030, L_0x2266140, C4<0>;
+L_0x22661e0 .delay (1,1,1) L_0x22661e0/d;
+v0x223bff0_0 .var "a", 0 0;
+v0x2265700_0 .var "b", 0 0;
+v0x22657a0_0 .var "c", 0 0;
+v0x2265840_0 .net "cout", 0 0, L_0x22661e0; 1 drivers
+v0x22658f0_0 .net "s", 0 0, L_0x2265d80; 1 drivers
+v0x2265990_0 .net "w1", 0 0, L_0x2265ca0; 1 drivers
+v0x2265a70_0 .net "w2", 0 0, L_0x2265ea0; 1 drivers
+v0x2265b10_0 .net "w3", 0 0, L_0x2266030; 1 drivers
+v0x2265c00_0 .net "w4", 0 0, L_0x2266140; 1 drivers
+    .scope S_0x223bf00;
+T_0 ;
+    %vpi_call 2 21 "$monitor", $time, "a =%b, b=%b, c=%b,cout=%b,s=%b", v0x223bff0_0, v0x2265700_0, v0x22657a0_0, v0x2265840_0, v0x22658f0_0;
+    %vpi_call 2 22 "$display", $time, "a =%b, b=%b, c=%b,cout=%b,s=%b", v0x223bff0_0, v0x2265700_0, v0x22657a0_0, v0x2265840_0, v0x22658f0_0;
+    %delay 0, 0;
+    %set/v v0x223bff0_0, 0, 1;
+    %set/v v0x2265700_0, 0, 1;
+    %set/v v0x22657a0_0, 0, 1;
+    %delay 10, 0;
+    %set/v v0x223bff0_0, 0, 1;
+    %set/v v0x2265700_0, 0, 1;
+    %set/v v0x22657a0_0, 1, 1;
+    %delay 10, 0;
+    %set/v v0x223bff0_0, 0, 1;
+    %set/v v0x2265700_0, 1, 1;
+    %set/v v0x22657a0_0, 0, 1;
+    %delay 10, 0;
+    %set/v v0x223bff0_0, 0, 1;
+    %set/v v0x2265700_0, 1, 1;
+    %set/v v0x22657a0_0, 1, 1;
+    %delay 10, 0;
+    %set/v v0x223bff0_0, 1, 1;
+    %set/v v0x2265700_0, 0, 1;
+    %set/v v0x22657a0_0, 0, 1;
+    %delay 10, 0;
+    %set/v v0x223bff0_0, 1, 1;
+    %set/v v0x2265700_0, 0, 1;
+    %set/v v0x22657a0_0, 1, 1;
+    %delay 10, 0;
+    %set/v v0x223bff0_0, 1, 1;
+    %set/v v0x2265700_0, 1, 1;
+    %set/v v0x22657a0_0, 0, 1;
+    %delay 10, 0;
+    %set/v v0x223bff0_0, 1, 1;
+    %set/v v0x2265700_0, 1, 1;
+    %set/v v0x22657a0_0, 1, 1;
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "full_adder_delay.v";

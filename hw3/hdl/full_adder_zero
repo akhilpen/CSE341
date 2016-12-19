@@ -1,0 +1,65 @@
+#! /util/verilog-0.9.7/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x8f7f00 .scope module, "full_adder_zero" "full_adder_zero" 2 1;
+ .timescale 0 0;
+L_0x920c20 .functor XOR 1, v0x8f7ff0_0, v0x920680_0, C4<0>, C4<0>;
+L_0x920d00 .functor XOR 1, L_0x920c20, v0x920720_0, C4<0>, C4<0>;
+L_0x920de0 .functor AND 1, v0x8f7ff0_0, v0x920720_0, C4<1>, C4<1>;
+L_0x920f10 .functor AND 1, v0x920680_0, v0x920720_0, C4<1>, C4<1>;
+L_0x920fc0 .functor AND 1, v0x8f7ff0_0, v0x920680_0, C4<1>, C4<1>;
+L_0x921020 .functor OR 1, L_0x920de0, L_0x920f10, L_0x920fc0, C4<0>;
+v0x8f7ff0_0 .var "a", 0 0;
+v0x920680_0 .var "b", 0 0;
+v0x920720_0 .var "c", 0 0;
+v0x9207c0_0 .net "cout", 0 0, L_0x921020; 1 drivers
+v0x920870_0 .net "s", 0 0, L_0x920d00; 1 drivers
+v0x920910_0 .net "w1", 0 0, L_0x920c20; 1 drivers
+v0x9209f0_0 .net "w2", 0 0, L_0x920de0; 1 drivers
+v0x920a90_0 .net "w3", 0 0, L_0x920f10; 1 drivers
+v0x920b80_0 .net "w4", 0 0, L_0x920fc0; 1 drivers
+    .scope S_0x8f7f00;
+T_0 ;
+    %vpi_call 2 11 "$monitor", $time, "a =%b, b=%b, c=%b,cout=%b,s=%b", v0x8f7ff0_0, v0x920680_0, v0x920720_0, v0x9207c0_0, v0x920870_0;
+    %delay 0, 0;
+    %set/v v0x8f7ff0_0, 0, 1;
+    %set/v v0x920680_0, 0, 1;
+    %set/v v0x920720_0, 0, 1;
+    %delay 10, 0;
+    %set/v v0x8f7ff0_0, 0, 1;
+    %set/v v0x920680_0, 0, 1;
+    %set/v v0x920720_0, 1, 1;
+    %delay 10, 0;
+    %set/v v0x8f7ff0_0, 0, 1;
+    %set/v v0x920680_0, 1, 1;
+    %set/v v0x920720_0, 0, 1;
+    %delay 10, 0;
+    %set/v v0x8f7ff0_0, 0, 1;
+    %set/v v0x920680_0, 1, 1;
+    %set/v v0x920720_0, 1, 1;
+    %delay 10, 0;
+    %set/v v0x8f7ff0_0, 1, 1;
+    %set/v v0x920680_0, 0, 1;
+    %set/v v0x920720_0, 0, 1;
+    %delay 10, 0;
+    %set/v v0x8f7ff0_0, 1, 1;
+    %set/v v0x920680_0, 0, 1;
+    %set/v v0x920720_0, 1, 1;
+    %delay 10, 0;
+    %set/v v0x8f7ff0_0, 1, 1;
+    %set/v v0x920680_0, 1, 1;
+    %set/v v0x920720_0, 0, 1;
+    %delay 10, 0;
+    %set/v v0x8f7ff0_0, 1, 1;
+    %set/v v0x920680_0, 1, 1;
+    %set/v v0x920720_0, 1, 1;
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "full_adder_zero.v";
